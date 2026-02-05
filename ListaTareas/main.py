@@ -1,6 +1,7 @@
 from clases.gestorDB import GestorDBTareas
 from clases.gestorTareas import GestorTareas
 from clases.tarea import Tarea
+import coloresConstantes
 from task import Task
 import flet as ft
 
@@ -47,15 +48,15 @@ def main(page: ft.Page):
     listaTareas.tareas.extend(obtenerTareas())
 
 
-    page.window.height = 500
     page.window.width = 500
-    page.bgcolor = "#756868"
+    page.window.height = 500
+    page.bgcolor = "#2A2E35"
     page.window.resizable = False
 
 
 
     titulo = ft.Text("Mis tareas")
-    titulo.style = ft.TextStyle(size=30, color="white",weight=ft.FontWeight.BOLD)
+    titulo.style = ft.TextStyle(size=30, color=coloresConstantes.TEXTO_COLOR,weight=ft.FontWeight.BOLD)
 
     contenedorTitulo = ft.Container(
         content=ft.Column(
@@ -68,15 +69,15 @@ def main(page: ft.Page):
 
 
     entradaTarea = ft.TextField()
-    entradaTarea.color = "white"
+    entradaTarea.color = coloresConstantes.TEXTO_COLOR
     # entradaTarea.border = ft.InputBorder.NONE
     entradaTarea.width = 390
-    entradaTarea.border_radius = 20
+    entradaTarea.border_radius = 10
     entradaTarea.border_color = "black"
     entradaTarea.autofocus = True
 
     btnAgregar = ft.FloatingActionButton(
-        bgcolor="#3CBA81",
+        bgcolor= coloresConstantes.COLOR_BOTON_ADD,
         icon=ft.Icon(icon=ft.Icons.ADD),
         hover_elevation= 1000.56,
         on_click=agregarTarea
@@ -102,6 +103,8 @@ def main(page: ft.Page):
         width = 490,
         height = 270,
         padding = 12,
+        bgcolor=coloresConstantes.COLOR_CONTENDOR_CARDS,
+        border_radius=10
 
     )
 
@@ -116,9 +119,4 @@ def main(page: ft.Page):
 
 if __name__ == "__main__":
     ft.run(main)
-
-
-
-
-
 
